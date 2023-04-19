@@ -1,6 +1,7 @@
 import { INTEGER, STRING } from 'sequelize';
 import { db } from '../../dbConnect.js';
 
+
 const Students = db.define('Studens', {
     firstName: {
         type: STRING,

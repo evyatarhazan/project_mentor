@@ -1,5 +1,6 @@
 import Students from './type.js';
 
+
 export const findAll = (props) => {
     return Students.findAll(props);
 }
@@ -7,7 +8,6 @@ export const findAll = (props) => {
 export const findById = (id) => {
     return Students.findByPk(id);
 }
-
 
 export const deleteById = (id) => {
     return Students.destroy({ where: { id: id } });

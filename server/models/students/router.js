@@ -1,5 +1,4 @@
 import express from 'express';
-// import {postDatastudents, getAllstudents, deleteByIdstudents} from './model.js'
 import { deleteByIdStudents, getAllStudents, getByIdStudents, postDataStudents, updateStudents } from './model.js';
 
 

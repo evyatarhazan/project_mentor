@@ -1,19 +1,15 @@
 import { findAll, deleteById, create, update, findById } from './conllers.js';
-import { validateName, isValidIsraeliID, validatePhoneNumber } from './validator.js'
+import { validateName } from './validator.js'
 
 
 const validator = (req, res) => {
     const body = {
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        id: req.body.id,
-        phone: req.body.phone,
+        name: req.body.name,
+        type: req.body.type,
     };
     const validMap = {
-        firstName: validateName(body['firstName']),
-        lastName: validateName(body['lastName']),
-        id: isValidIsraeliID(body['id']),
-        phone: validatePhoneNumber(body['phone']),
+        name: validateName(body['name']),
+        name: validateName(body['type']),
     };
 
     const falseKeys = Object.entries(validMap)
@@ -34,7 +30,7 @@ const validator = (req, res) => {
     }
 }
 
-export const postDataStudents = (req, res) => {
+export const postDataGroups = (req, res) => {
     const valid = validator(req, res)
     if (valid == true) {
         create(req.body).
@@ -50,14 +46,14 @@ export const postDataStudents = (req, res) => {
     }
 }
 
-export const updateStudents = (req, res) => {
+export const updateGroups = (req, res) => {
     const valid = validator(req, res)
     if (valid == true) {
         update(req.body, req.params.id).
             then((data) => {
                 res.status(200).json({
-                    message: "Students updated successfully",
-                    students: data
+                    message: "Groups updated successfully",
+                    groups: data
                 })
             })
             .catch((error) => {
@@ -69,7 +65,7 @@ export const updateStudents = (req, res) => {
     }
 }
 
-export const getByIdStudents = (req, res) => {
+export const getByIdGroups = (req, res) => {
     const { id } = req.params;
     findById(id).
         then((data) => {
@@ -80,7 +76,7 @@ export const getByIdStudents = (req, res) => {
         });
 }
 
-export const getAllStudents = (req, res) => {
+export const getAllGroups = (req, res) => {
     findAll().
         then((data) => {
             res.send(data);
@@ -91,12 +87,12 @@ export const getAllStudents = (req, res) => {
         });
 }
 
-export const deleteByIdStudents = (req, res) => {
+export const deleteByIdGroups = (req, res) => {
     deleteById(req.params.id).
         then((data) => {
             res.status(200).json({
-                message: "Students deleted successfully",
-                Students: data
+                message: "Groups deleted successfully",
+                Groups: data
             })
         })
         .catch((error) => {
