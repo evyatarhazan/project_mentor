@@ -1,5 +1,5 @@
 import { findAll, deleteById, create, update, findById } from './conllers.js';
-import { validateName, isValidIsraeliID, validatePhoneNumber } from './validator.js'
+import { validateName, isValidIsraeliID, validatePhoneNumber } from '../../validator/validator.js'
 
 
 const validator = (req, res) => {
