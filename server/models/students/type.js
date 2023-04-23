@@ -2,7 +2,7 @@ import { INTEGER, STRING } from 'sequelize';
 import { db } from '../../dbConnect.js';
 
 
-const Students = db.define('Studens', {
+const Students = db.define('Students', {
     firstName: {
         type: STRING,
         allowNull: false
