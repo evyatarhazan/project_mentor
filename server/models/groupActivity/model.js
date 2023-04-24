@@ -1,4 +1,4 @@
-import { findAll, deleteById, create, update, findById } from './conllers.js';
+import { findAll, deleteById, create, update, findById, findByFk } from './conllers.js';
 
 
 export const postDataGroupActivity = (req, res) => {
@@ -59,5 +59,17 @@ export const deleteByIdGroupActivity = (req, res) => {
         })
         .catch((error) => {
             console.error(error);
+        });
+}
+
+export const getByFkGroupActivity = (req, res) => {
+    const { group_id } = req.body;
+    findByFk(group_id).
+        then((data) => {
+            res.send(data);
+        })
+        .catch((error) => {
+            console.log(error);
+            res.send(error);
         });
 }

@@ -25,3 +25,11 @@ export const update = (groupActivity, id) => {
     };
     return GroupActivity.update(update, { where: { id: id } });
 }
+
+export const findByFk = (groupId) => {
+    return GroupActivity.findAll({
+        where: {
+            group_id: groupId
+        }
+    });
+}
