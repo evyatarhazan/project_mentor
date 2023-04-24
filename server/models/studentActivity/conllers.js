@@ -27,3 +27,11 @@ export const update = (studentActivity, id) => {
     };
     return StudentActivity.update(update, { where: { id: id } });
 }
+
+export const findByFk = (studentId) => {
+    return StudentActivity.findAll({
+        where: {
+            student_id: studentId
+        }
+    });
+}

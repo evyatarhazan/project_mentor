@@ -1,4 +1,4 @@
-import { findAll, deleteById, create, update, findById } from './conllers.js';
+import { findAll, deleteById, create, update, findById, findByFk } from './conllers.js';
 
 
 export const postDataStudentActivity = (req, res) => {
@@ -59,5 +59,17 @@ export const deleteByIdStudentActivity = (req, res) => {
         })
         .catch((error) => {
             console.error(error);
+        });
+}
+
+export const getByFkStudentActivity = (req, res) => {
+    const { student_id } = req.body;
+    findByFk(student_id).
+        then((data) => {
+            res.send(data);
+        })
+        .catch((error) => {
+            console.log(error);
+            res.send(error);
         });
 }

@@ -4,7 +4,7 @@ import Groups from '../groups/type.js';
 import Students from '../students/type.js';
 
 
-const StudentGroupRelationship = db.define('studentGroupRelationship', {
+const StudentGroupRelationship = db.define('StudentGroupRelationship', {
     student_id: {
         type: INTEGER,
         allowNull: false,
