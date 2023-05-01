@@ -18,3 +18,8 @@ export const create = (studentGroupRelationship) => {
     return newStudentGroupRelationship.save();
 }
 
+export const findByFk = (fk) => {
+    return StudentGroupRelationship.findAll({
+        where: fk 
+    });
+}
