@@ -19,6 +19,10 @@ const Students = db.define('Students', {
     phone: {
         type: STRING,
         allowNull: false
+    },
+    email: {
+        type: STRING,
+        allowNull: true
     }
 });
 

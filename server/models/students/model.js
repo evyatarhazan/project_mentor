@@ -1,5 +1,5 @@
 import { findAll, deleteById, create, update, findById } from './conllers.js';
-import { validateName, isValidIsraeliID, validatePhoneNumber } from '../../validator/validator.js'
+import { validateName, isValidIsraeliID, validatePhoneNumber, validateEmail } from '../../validator/validator.js'
 
 
 const validator = (req, res) => {
@@ -8,12 +8,14 @@ const validator = (req, res) => {
         lastName: req.body.lastName,
         id: req.body.id,
         phone: req.body.phone,
+        email: req.body.email,
     };
     const validMap = {
         firstName: validateName(body['firstName']),
         lastName: validateName(body['lastName']),
         id: isValidIsraeliID(body['id']),
         phone: validatePhoneNumber(body['phone']),
+        email: validateEmail(body['email'])
     };
 
     const falseKeys = Object.entries(validMap)

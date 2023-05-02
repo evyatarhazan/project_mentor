@@ -22,7 +22,8 @@ export const update = (student, id) => {
     let update = {
         firstName: student.firstName,
         lastName: student.lastName,
-        phone: student.phone
+        phone: student.phone,
+        email: student.email
     };
     return Students.update(update, { where: { id: id } });
 }

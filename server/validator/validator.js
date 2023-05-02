@@ -23,9 +23,14 @@ export const isValidIsraeliID = (idNumber) => {
 
 
 export const validatePhoneNumber = (phoneNumber) => {
-  console.log('sss', phoneNumber)
   const re = /^(?:\+972|972|0)(?:-)?(?:[23489]|5[023458]|77|81)(?:-)?(?:\d{7})$/;
   return re.test(phoneNumber);
 };
+
+
+export const validateEmail = (email) => {
+  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return re.test(email);
+}
 
 
