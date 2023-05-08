@@ -59,3 +59,10 @@ export const P = styled.p``;
 export const Action = styled.div`
   display: flex;
 `;
+
+export const Warning = styled.div`
+  color: red;
+  font-size: 15px;
+  margin-top: 30px;
+  display: inline-block;
+`;

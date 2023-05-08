@@ -2,10 +2,10 @@ import * as styled from "../../styles/stylesMiniNavbar.js";
 import React, { useState, useCallback } from "react";
 
 const MiniNavbar = (props) => {
-  const { allData, setTabelData } = props;
+  const { allData, setTabelData, setIsExist } = props;
   const [searchTerm, setSearchTerm] = useState("");
-  const [isExist, setIsExist] = useState(false);
 
+  
   const handleSetSearch = useCallback(
     (event) => {
       const searchTerm = event.target.value;
@@ -27,19 +27,12 @@ const MiniNavbar = (props) => {
 
   return (
     <styled.MiniNavbarContainer>
-      <styled.Flex>
-        <styled.Input
-          type="text"
-          value={searchTerm}
-          onChange={handleSetSearch}
-          placeholder="Search"
-        />
-        {isExist && (
-          <styled.Warning className="warning">
-            No value matched your search
-          </styled.Warning>
-        )}
-      </styled.Flex>
+      <styled.Input
+        type="text"
+        value={searchTerm}
+        onChange={handleSetSearch}
+        placeholder="Search"
+      />
     </styled.MiniNavbarContainer>
   );
 };

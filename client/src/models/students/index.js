@@ -59,6 +59,7 @@ const StudentPage = (props) => {
   const { students, studentGroupRelationship, groups } = props;
   const [allData, setAllData] = useState([]);
   const [tabelData, setTabelData] = useState([]);
+  const [isExist, setIsExist] = useState(false);
 
   useEffect(() => {
     const newTableData = students.map((student) => {
@@ -78,8 +79,13 @@ const StudentPage = (props) => {
 
   return (
     <>
-      <MiniNavbar allData={allData} setTabelData={setTabelData}/>
+      <MiniNavbar allData={allData} setTabelData={setTabelData} setIsExist={setIsExist}/>
       <StudentTable tabelData={tabelData} />
+      {isExist && (
+          <styled.Warning className="warning">
+            No value matched your search
+          </styled.Warning>
+        )}
     </>
   );
 };
