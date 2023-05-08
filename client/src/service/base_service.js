@@ -2,7 +2,6 @@ import axios from 'axios';
 
 
 export const getAll = async (url) => {
-    console.log('url',`${process.env.REACT_APP_HTTP}${process.env.REACT_APP_LOCALHOST}:${process.env.REACT_APP_PORT}${process.env.REACT_APP_API}${url}` )
     try {
         const response = await axios.get(`${process.env.REACT_APP_HTTP}${process.env.REACT_APP_LOCALHOST}:${process.env.REACT_APP_PORT}${process.env.REACT_APP_API}${url}`)
         const data = await response.data

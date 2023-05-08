@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 
-export const NavbarContainer = styled.nav`
+export const MiniNavbarContainer = styled.nav`
   display: flex;
+  background-color: #ab5e2a;
   align-items: center;
-  height: 80px;
+  height: 40px;
   padding: 0 20px;
   color: #fff;
 `;

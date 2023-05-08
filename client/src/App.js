@@ -5,6 +5,7 @@ import * as styled from "./styles/stylesApp.js";
 import GlobalStyles from "./styles/globalStyles.js";
 import Navbar from "./defultComponent/navber.js";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import StudentPage from './models/students/index.js';
 
 function App() {
   const [isReadyStudents, setIsReadyStudents] = useState(false);
@@ -47,10 +48,10 @@ function App() {
       <GlobalStyles />
       <styled.App>
       <Navbar/>
-        <Routes>
+        <Routes show={isReadyStudents && isReadyGroups && isReadyStudentGroupRelationship}>
           <Route path="/" element={"Home"} />
           <Route path="/groups" element={"groups"} />
-          <Route path="/students" element={"students"} />
+          <Route path="/students" element={<StudentPage students={students} groups={groups} studentGroupRelationship={studentGroupRelationship} />} />
         </Routes>
       </styled.App>
     </BrowserRouter>
