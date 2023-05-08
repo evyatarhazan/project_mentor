@@ -57,6 +57,7 @@ const StudentTable = ({ tabelData }) => (
 
 const StudentPage = (props) => {
   const { students, studentGroupRelationship, groups } = props;
+  const [allData, setAllData] = useState([]);
   const [tabelData, setTabelData] = useState([]);
 
   useEffect(() => {
@@ -71,12 +72,13 @@ const StudentPage = (props) => {
         className: className.length ? className[0].name : "",
       };
     });
+    setAllData(newTableData)
     setTabelData(newTableData);
   }, [students, studentGroupRelationship, groups]);
 
   return (
     <>
-      <MiniNavbar />
+      <MiniNavbar allData={allData} setTabelData={setTabelData}/>
       <StudentTable tabelData={tabelData} />
     </>
   );
